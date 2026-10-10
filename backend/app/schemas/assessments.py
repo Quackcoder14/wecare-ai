@@ -72,6 +72,7 @@ class QueueItem(BaseModel):
     review_status: ReviewStatus
     latest_assessment_id: str
     created_at: str
+    risk_score: Optional[int] = None
 
 
 class QueueResponse(BaseModel):

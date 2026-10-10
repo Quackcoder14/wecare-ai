@@ -28,9 +28,9 @@ function formatWait(createdAt: string): string {
 
 function getWaitColor(createdAt: string): string {
   const mins = Math.floor((Date.now() - new Date(createdAt).getTime()) / 60000);
-  if (mins >= 30) return '#D64545';
-  if (mins >= 15) return '#D97706';
-  return '#059669';
+  if (mins >= 60) return '#D64545';   // > 1 hour → urgent red
+  if (mins >= 20) return '#D97706';   // 20-60 min → amber warning
+  return '#059669';                   // < 20 min → green
 }
 
 // ── Stat card ──────────────────────────────────────────────────────────────
@@ -154,15 +154,17 @@ export function DashboardPage() {
     }
   }, [loading]);
 
-  const filteredQueue = queue.filter(item => {
-    switch (filter) {
-      case 'red':          return item.acuity === 'red';
-      case 'yellow':       return item.acuity === 'yellow';
-      case 'green':        return item.acuity === 'green';
-      case 'needs_review': return item.review_status === 'pending';
-      default:             return true;
-    }
-  });
+  const filteredQueue = queue
+    .filter(item => {
+      switch (filter) {
+        case 'red':          return item.acuity === 'red';
+        case 'yellow':       return item.acuity === 'yellow';
+        case 'green':        return item.acuity === 'green';
+        case 'needs_review': return item.review_status === 'pending';
+        default:             return true;
+      }
+    })
+    .sort((a, b) => (b.risk_score ?? 0) - (a.risk_score ?? 0));
 
   const summary = {
     total:       queue.length,
@@ -425,12 +427,21 @@ function QueueRow({
         )}
       </div>
 
-      {/* Acuity — clean text + dot, no pill box */}
+      {/* Acuity — clean text + dot + risk score badge */}
       <div className="db-col-acuity">
         <span className="db-acuity-inline">
           <span className="db-acuity-dot" style={{ background: acuity.dot }} />
           <span className="db-acuity-label" style={{ color: acuity.dot }}>{acuity.label}</span>
         </span>
+        {item.risk_score != null && (
+          <span
+            className="db-risk-badge"
+            style={{ color: acuity.dot, borderColor: acuity.dot + '55' }}
+            title="Risk score (0-100)"
+          >
+            {item.risk_score}
+          </span>
+        )}
       </div>
 
       {/* Assessment */}

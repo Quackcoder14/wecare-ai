@@ -94,6 +94,7 @@ export interface QueueItem {
   review_status: ReviewStatus;
   latest_assessment_id: string;
   created_at: string;
+  risk_score?: number;
 }
 
 export type ReviewStatus = 'pending' | 'acknowledged' | 'not_required';

@@ -76,6 +76,7 @@ class QueueService:
                 review_status=review_status,
                 latest_assessment_id=assessment.id,
                 created_at=patient.created_at.isoformat() if isinstance(patient.created_at, datetime) else str(patient.created_at),
+                risk_score=assessment.risk_score,
             ))
 
         # Sort queue by acuity priority then waiting time
@@ -87,7 +88,7 @@ class QueueService:
         )
 
     def _sort_queue(self, items: List[QueueItem]) -> List[QueueItem]:
-        """Sort queue by acuity priority then waiting time (longer first)."""
+        """Sort by acuity tier first, then risk_score descending within each tier."""
         acuity_priority = {
             AcuityCategory.RED: 0,
             AcuityCategory.YELLOW: 1,
@@ -99,7 +100,9 @@ class QueueService:
 
         def sort_key(item: QueueItem):
             priority = acuity_priority.get(item.acuity, 99)
-            return (priority, -item.waiting_duration_seconds)
+            # Higher risk_score → higher urgency → appears first (negate for desc sort)
+            score = -(item.risk_score or 0)
+            return (priority, score)
 
         return sorted(items, key=sort_key)
 
