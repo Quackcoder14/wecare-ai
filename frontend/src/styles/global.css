@@ -2063,7 +2063,7 @@ a:focus-visible {
 
 .db-table-head {
   display: grid;
-  grid-template-columns: 42px 1.2fr 110px 1.4fr 120px 90px;
+  grid-template-columns: 42px 1.1fr 105px 125px 1.4fr 145px;
   gap: 12px;
   padding: 12px 20px;
   background: rgba(218,238,255,0.45);
@@ -2080,7 +2080,7 @@ a:focus-visible {
 
 .db-table-row {
   display: grid;
-  grid-template-columns: 42px 1.2fr 110px 1.4fr 120px 90px;
+  grid-template-columns: 42px 1.1fr 105px 125px 1.4fr 145px;
   gap: 12px;
   padding: 14px 20px;
   align-items: center;

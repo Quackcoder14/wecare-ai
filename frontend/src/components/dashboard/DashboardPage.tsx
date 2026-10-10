@@ -292,8 +292,8 @@ export function DashboardPage() {
               <div className="db-col-pos">#</div>
               <div className="db-col-name">Patient</div>
               <div className="db-col-acuity">Acuity</div>
-              <div className="db-col-assessment">Assessment</div>
               <div className="db-col-review">Review</div>
+              <div className="db-col-assessment">Assessment</div>
               <div className="db-col-action"></div>
             </div>
             {/* Table rows */}
@@ -407,17 +407,17 @@ function QueueRow({
         )}
       </div>
 
-      {/* Assessment */}
-      <div className="db-col-assessment">
-        <span className="db-assessment-text">{item.assessment_summary || '—'}</span>
-      </div>
-
-      {/* Review — moved to where Waiting was */}
+      {/* Review */}
       <div className="db-col-review">
         <span className="db-review-inline" style={{ color: review.color }}>
           {review.icon && <span style={{ marginRight: 3 }}>{review.icon}</span>}
           {review.label}
         </span>
+      </div>
+
+      {/* Assessment */}
+      <div className="db-col-assessment">
+        <span className="db-assessment-text">{item.assessment_summary || '—'}</span>
       </div>
 
       {/* Action */}
