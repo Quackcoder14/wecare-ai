@@ -1,7 +1,6 @@
-import { useTranslation } from '../../i18n/context';
-import { ChevronRight, Eye, AlertTriangle, CheckCircle } from 'lucide-react';
+import { Eye, AlertTriangle } from 'lucide-react';
 import type { QueueItem } from '../../types/api';
-import { getAcuityDisplay, getReviewStatusDisplay } from '../../services/assessmentService';
+import { AcuityBadge, ReviewStatusBadge } from './AcuityBadge';
 import { useReducedMotion } from '../../hooks/useMediaQuery';
 import { animate } from 'animejs';
 import { useRef, useEffect } from 'react';
@@ -12,7 +11,7 @@ interface PatientQueueRowProps {
   onClick: () => void;
   formatTimeAgo: (timestamp: string) => string;
   getAcuityDisplay: (category: string) => { label: string; color: string; bgColor: string };
-  getReviewStatusDisplay: (status: string) => { label: string; color: string; bgColor: string };
+  getReviewStatusDisplay?: (status: string) => { label: string; color: string; bgColor: string };
   t: (key: string) => string;
 }
 
@@ -22,7 +21,6 @@ export function PatientQueueRow({
   onClick,
   formatTimeAgo,
   getAcuityDisplay,
-  getReviewStatusDisplay,
   t,
 }: PatientQueueRowProps) {
   const reducedMotion = useReducedMotion();
@@ -41,7 +39,6 @@ export function PatientQueueRow({
   }, [index, reducedMotion]);
 
   const acuityDisplay = getAcuityDisplay(item.acuity);
-  const reviewDisplay = getReviewStatusDisplay(item.review_status);
   const waitingTime = formatTimeAgo(item.created_at);
 
   return (
@@ -77,12 +74,7 @@ export function PatientQueueRow({
 
       {/* Acuity */}
       <div className="col-span-12 md:col-span-2">
-        <span
-          className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold ${acuityDisplay.bgColor} ${acuityDisplay.color}`}
-          aria-label={`${t('a11y.acuityLevel')}: ${acuityDisplay.label}`}
-        >
-          {acuityDisplay.label}
-        </span>
+        <AcuityBadge category={item.acuity} size="sm" />
       </div>
 
       {/* Assessment summary */}
@@ -100,12 +92,7 @@ export function PatientQueueRow({
 
       {/* Review status */}
       <div className="col-span-12 md:col-span-1">
-        <span
-          className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${reviewDisplay.bgColor} ${reviewDisplay.color}`}
-          aria-label={reviewDisplay.label}
-        >
-          {reviewDisplay.label}
-        </span>
+        <ReviewStatusBadge status={item.review_status as 'pending' | 'acknowledged' | 'not_required'} size="sm" />
       </div>
 
       {/* Action */}

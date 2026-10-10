@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F4FE"/>
+      <stop offset="50%" stop-color="#CFE7FB"/>
+      <stop offset="100%" stop-color="#9AD0F5"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E9F9F"/>
+      <stop offset="100%" stop-color="#086B6D"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#084678" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded app icon -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="4"/>
+
+  <!-- Shield Shape -->
+  <g filter="url(#shadow)">
+    <path d="M256 88 C336 88 388 124 388 184 C388 300 292 384 256 416 C220 384 124 300 124 184 C124 124 176 88 256 88 Z"
+          fill="url(#shieldGrad)"/>
+  </g>
+
+  <!-- Medical Cross / Pulse Line in White -->
+  <path d="M190 252 L225 252 L242 204 L264 300 L282 232 L298 264 L322 264"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="16"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Subtle glow dot -->
+  <circle cx="322" cy="264" r="9" fill="#1AD8DA"/>
+</svg>

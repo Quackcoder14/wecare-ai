@@ -1,9 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from '../../i18n/context';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
-import { getServices, setUseMock } from '../../services';
+import { useState } from 'react';
+import { apiClient } from '../../services/apiClient';
+import { useEffect } from 'react';
+
+import { MobileBottomBar } from './MobileBottomBar';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -11,24 +16,38 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   const { t } = useTranslation();
+  const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDemoMode, setIsDemoMode] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
 
   const isMobile = useMediaQuery('(max-width: 768px)');
 
+  // Home page gets full-screen treatment
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
-    const services = getServices();
-    // Check if we're using mock by trying to access the config
-    const config = (services as any).patient?.constructor?.name?.includes('mock');
-    setIsDemoMode(config || false);
+    setIsDemoMode(apiClient.getConfig().useMock);
   }, []);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   const closeSidebar = () => setSidebarOpen(false);
 
+  if (isHomePage) {
+    return (
+      <div className="app-shell-home pb-20 md:pb-0">
+        {children}
+        <MobileBottomBar />
+      </div>
+    );
+  }
+
   return (
-    <div className="app-shell flex min-h-screen bg-background">
+    <div className="app-shell flex min-h-screen" style={{
+      background: 'linear-gradient(135deg, #daeeff 0%, #f0f8ff 40%, #cce9ff 70%, #e8f4fe 100%)',
+      backgroundAttachment: 'fixed',
+      minHeight: '100vh',
+    }}>
       {/* Mobile sidebar overlay */}
       {isMobile && sidebarOpen && (
         <div
@@ -68,7 +87,7 @@ export function AppShell({ children }: AppShellProps) {
         {/* Main content */}
         <main
           ref={mainRef}
-          className="flex-1 p-4 md:p-6 lg:p-8 overflow-auto"
+          className="flex-1 p-4 md:p-6 lg:p-8 overflow-auto pb-24 md:pb-8"
           role="main"
           tabIndex={-1}
         >
@@ -76,7 +95,10 @@ export function AppShell({ children }: AppShellProps) {
         </main>
       </div>
 
-      {/* Skip to main content link for accessibility */}
+      {/* Mobile persistent bottom navigation */}
+      <MobileBottomBar />
+
+      {/* Skip link */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 btn btn-primary"

@@ -5,6 +5,7 @@ import type { QueueItem } from '../../types/api';
 interface PatientQueueProps {
   items: QueueItem[];
   onRowClick: (patientId: string) => void;
+  onNewPatient?: () => void;
   formatTimeAgo: (timestamp: string) => string;
   getAcuityDisplay: (category: string) => { label: string; color: string; bgColor: string };
   getReviewStatusDisplay: (status: string) => { label: string; color: string; bgColor: string };
@@ -14,13 +15,14 @@ interface PatientQueueProps {
 export function PatientQueue({
   items,
   onRowClick,
+  onNewPatient,
   formatTimeAgo,
   getAcuityDisplay,
   getReviewStatusDisplay,
   t,
 }: PatientQueueProps) {
   if (items.length === 0) {
-    return <EmptyQueue onNewPatient={() => {}} />;
+    return <EmptyQueue onNewPatient={onNewPatient || (() => {})} />;
   }
 
   return (

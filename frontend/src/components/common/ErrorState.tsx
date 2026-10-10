@@ -34,8 +34,6 @@ export function ErrorState({ message, onRetry, retryLabel, className = '' }: Err
 }
 
 export function InlineError({ message, className = '' }: { message: string; className?: string }) {
-  const { t } = useTranslation();
-
   return (
     <div className={`flex items-center gap-2 p-3 rounded-lg bg-acuity-red/10 border border-acuity-red/20 text-acuity-red text-sm ${className}`} role="alert">
       <AlertCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />

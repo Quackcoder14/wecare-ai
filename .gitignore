@@ -28,6 +28,7 @@ credentials*.json
 
 # Logs and operating-system files
 *.log
+*.zip
 .DS_Store
 Thumbs.db
 

@@ -97,6 +97,11 @@ export function useTranslation() {
   return context;
 }
 
+// Alias for full context (includes setLocale)
+export function useI18n() {
+  return useTranslation();
+}
+
 export function useLocale() {
   const { locale } = useTranslation();
   return locale;

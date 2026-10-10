@@ -1,0 +1,764 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "SCEN-001",
+      "description": "Airway obstruction - RED criterion",
+      "criteria_tested": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "age": 45,
+      "clinical_findings": {
+        "airway_obstruction": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Airway section, Page 1-2"
+    },
+    {
+      "scenario_id": "SCEN-002",
+      "description": "Severe respiratory distress - RED criterion",
+      "criteria_tested": [
+        "RED_SEVERE_RESPIRATORY_DISTRESS"
+      ],
+      "age": 30,
+      "clinical_findings": {
+        "severe_respiratory_distress": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_SEVERE_RESPIRATORY_DISTRESS"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Breathing section, Page 2"
+    },
+    {
+      "scenario_id": "SCEN-003",
+      "description": "Central cyanosis - RED criterion",
+      "criteria_tested": [
+        "RED_CENTRAL_CYANOSIS"
+      ],
+      "age": 55,
+      "clinical_findings": {
+        "central_cyanosis": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_CENTRAL_CYANOSIS"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Breathing section, Page 2"
+    },
+    {
+      "scenario_id": "SCEN-004",
+      "description": "Unable to speak full sentences - RED criterion",
+      "criteria_tested": [
+        "RED_UNABLE_TO_SPEAK"
+      ],
+      "age": 40,
+      "clinical_findings": {
+        "unable_to_speak_full_sentences": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_UNABLE_TO_SPEAK"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Breathing section, Page 2"
+    },
+    {
+      "scenario_id": "SCEN-005",
+      "description": "Clinical shock - RED criterion",
+      "criteria_tested": [
+        "RED_SHOCK"
+      ],
+      "age": 60,
+      "clinical_findings": {
+        "shock": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_SHOCK"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Circulation section, Page 2-3"
+    },
+    {
+      "scenario_id": "SCEN-006",
+      "description": "Capillary refill > 3 seconds - RED criterion",
+      "criteria_tested": [
+        "RED_CAPILLARY_REFILL_GT_3S"
+      ],
+      "age": 50,
+      "clinical_findings": {
+        "capillary_refill_gt_3s": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_CAPILLARY_REFILL_GT_3S"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Circulation section, Page 3"
+    },
+    {
+      "scenario_id": "SCEN-007",
+      "description": "Weak peripheral pulses - RED criterion",
+      "criteria_tested": [
+        "RED_WEAK_PULSES"
+      ],
+      "age": 45,
+      "clinical_findings": {
+        "weak_peripheral_pulses": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_WEAK_PULSES"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Circulation section, Page 3"
+    },
+    {
+      "scenario_id": "SCEN-008",
+      "description": "Cold extremities - RED criterion",
+      "criteria_tested": [
+        "RED_COLD_EXTREMITIES"
+      ],
+      "age": 55,
+      "clinical_findings": {
+        "cold_extremities": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_COLD_EXTREMITIES"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Circulation section, Page 3"
+    },
+    {
+      "scenario_id": "SCEN-009",
+      "description": "Altered mental status - RED criterion",
+      "criteria_tested": [
+        "RED_ALTERED_MENTAL_STATUS"
+      ],
+      "age": 70,
+      "clinical_findings": {
+        "altered_mental_status": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_ALTERED_MENTAL_STATUS"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Disability section, Page 3"
+    },
+    {
+      "scenario_id": "SCEN-010",
+      "description": "Unconscious - RED criterion",
+      "criteria_tested": [
+        "RED_UNCONSCIOUS"
+      ],
+      "age": 65,
+      "clinical_findings": {
+        "unconscious": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_UNCONSCIOUS"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Disability section, Page 3"
+    },
+    {
+      "scenario_id": "SCEN-011",
+      "description": "Active seizure - RED criterion",
+      "criteria_tested": [
+        "RED_SEIZURE"
+      ],
+      "age": 25,
+      "clinical_findings": {
+        "seizure_activity": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_SEIZURE"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Disability section, Page 3"
+    },
+    {
+      "scenario_id": "SCEN-012",
+      "description": "Major trauma - RED criterion",
+      "criteria_tested": [
+        "RED_MAJOR_TRAUMA"
+      ],
+      "age": 30,
+      "clinical_findings": {
+        "major_trauma": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_MAJOR_TRAUMA"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Trauma section, Page 4"
+    },
+    {
+      "scenario_id": "SCEN-013",
+      "description": "Uncontrolled bleeding - RED criterion",
+      "criteria_tested": [
+        "RED_UNCONTROLLED_BLEEDING"
+      ],
+      "age": 35,
+      "clinical_findings": {
+        "uncontrolled_bleeding": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_UNCONTROLLED_BLEEDING"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Trauma section, Page 4"
+    },
+    {
+      "scenario_id": "SCEN-014",
+      "description": "Suspected spinal injury - RED criterion",
+      "criteria_tested": [
+        "RED_SUSPECTED_SPINAL"
+      ],
+      "age": 28,
+      "clinical_findings": {
+        "suspected_spinal_injury": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_SUSPECTED_SPINAL"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Trauma section, Page 4"
+    },
+    {
+      "scenario_id": "SCEN-015",
+      "description": "Major burns - RED criterion",
+      "criteria_tested": [
+        "RED_MAJOR_BURNS"
+      ],
+      "age": 40,
+      "clinical_findings": {
+        "major_burns": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_MAJOR_BURNS"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Trauma section, Page 4"
+    },
+    {
+      "scenario_id": "SCEN-016",
+      "description": "Chest pain cardiac - RED criterion",
+      "criteria_tested": [
+        "RED_CHEST_PAIN_CARDIAC"
+      ],
+      "age": 55,
+      "clinical_findings": {
+        "chest_pain_cardiac": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_CHEST_PAIN_CARDIAC"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Specific conditions - Cardiac, Page 5"
+    },
+    {
+      "scenario_id": "SCEN-017",
+      "description": "ACS suspected - RED criterion",
+      "criteria_tested": [
+        "RED_ACS_SUSPECTED"
+      ],
+      "age": 60,
+      "clinical_findings": {
+        "acute_coronary_syndrome_suspected": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_ACS_SUSPECTED"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Specific conditions - Cardiac, Page 5"
+    },
+    {
+      "scenario_id": "SCEN-018",
+      "description": "Acute abdomen - RED criterion",
+      "criteria_tested": [
+        "RED_ACUTE_ABDOMEN"
+      ],
+      "age": 35,
+      "clinical_findings": {
+        "acute_abdomen": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_ACUTE_ABDOMEN"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Specific conditions - Abdominal, Page 5"
+    },
+    {
+      "scenario_id": "SCEN-019",
+      "description": "Toxic appearance with fever - RED criterion",
+      "criteria_tested": [
+        "RED_TOXIC_APPEARANCE"
+      ],
+      "age": 45,
+      "clinical_findings": {
+        "high_fever_with_toxic_appearance": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_TOXIC_APPEARANCE"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Specific conditions - Infectious, Page 5"
+    },
+    {
+      "scenario_id": "SCEN-020",
+      "description": "Severe pain - RED criterion",
+      "criteria_tested": [
+        "RED_SEVERE_PAIN"
+      ],
+      "age": 50,
+      "clinical_findings": {
+        "severe_pain": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_SEVERE_PAIN"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Specific conditions - Pain, Page 5"
+    },
+    {
+      "scenario_id": "SCEN-021",
+      "description": "Poisoning - RED criterion",
+      "criteria_tested": [
+        "RED_POISONING"
+      ],
+      "age": 22,
+      "clinical_findings": {
+        "poisoning_known_or_suspected": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_POISONING"
+      ],
+      "source_reference": "WHO IITT Routine Triage (Age 12+), Specific conditions - Poisoning, Page 5"
+    },
+    {
+      "scenario_id": "SCEN-022",
+      "description": "Heart rate > 130 bpm - RED vital sign",
+      "criteria_tested": [
+        "RED_HR_GT_130"
+      ],
+      "age": 40,
+      "clinical_findings": {},
+      "vital_signs": {
+        "heart_rate_bpm": 140
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_HR_GT_130"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Heart rate - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-023",
+      "description": "Heart rate < 50 bpm - RED vital sign",
+      "criteria_tested": [
+        "RED_HR_LT_50"
+      ],
+      "age": 60,
+      "clinical_findings": {},
+      "vital_signs": {
+        "heart_rate_bpm": 45
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_HR_LT_50"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Heart rate - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-024",
+      "description": "Respiratory rate > 30/min - RED vital sign",
+      "criteria_tested": [
+        "RED_RR_GT_30"
+      ],
+      "age": 35,
+      "clinical_findings": {},
+      "vital_signs": {
+        "respiratory_rate_per_min": 35
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_RR_GT_30"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Respiratory rate - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-025",
+      "description": "Respiratory rate < 10/min - RED vital sign",
+      "criteria_tested": [
+        "RED_RR_LT_10"
+      ],
+      "age": 50,
+      "clinical_findings": {},
+      "vital_signs": {
+        "respiratory_rate_per_min": 8
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_RR_LT_10"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Respiratory rate - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-026",
+      "description": "SpO2 < 92% - RED vital sign",
+      "criteria_tested": [
+        "RED_SPO2_LT_92"
+      ],
+      "age": 45,
+      "clinical_findings": {},
+      "vital_signs": {
+        "spo2_percent": 88
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_SPO2_LT_92"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Oxygen saturation - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-027",
+      "description": "Systolic BP < 90 mmHg - RED vital sign",
+      "criteria_tested": [
+        "RED_SBP_LT_90"
+      ],
+      "age": 55,
+      "clinical_findings": {},
+      "vital_signs": {
+        "systolic_bp_mmhg": 85
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_SBP_LT_90"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Blood pressure - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-028",
+      "description": "Temperature > 39\u00c2\u00b0C - RED vital sign",
+      "criteria_tested": [
+        "RED_TEMP_GT_39"
+      ],
+      "age": 30,
+      "clinical_findings": {},
+      "vital_signs": {
+        "temperature_c": 40.0
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_TEMP_GT_39"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Temperature - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-029",
+      "description": "Temperature < 35\u00c2\u00b0C - RED vital sign",
+      "criteria_tested": [
+        "RED_TEMP_LT_35"
+      ],
+      "age": 65,
+      "clinical_findings": {},
+      "vital_signs": {
+        "temperature_c": 34.0
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_TEMP_LT_35"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Temperature - Red zone"
+    },
+    {
+      "scenario_id": "SCEN-030",
+      "description": "Heart rate 110-130 bpm - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_HR_110_130"
+      ],
+      "age": 40,
+      "clinical_findings": {},
+      "vital_signs": {
+        "heart_rate_bpm": 120
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_HR_110_130"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Heart rate - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-031",
+      "description": "Heart rate 50-60 bpm - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_HR_50_60"
+      ],
+      "age": 55,
+      "clinical_findings": {},
+      "vital_signs": {
+        "heart_rate_bpm": 55
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_HR_50_60"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Heart rate - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-032",
+      "description": "Respiratory rate 25-30/min - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_RR_25_30"
+      ],
+      "age": 35,
+      "clinical_findings": {},
+      "vital_signs": {
+        "respiratory_rate_per_min": 28
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_RR_25_30"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Respiratory rate - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-033",
+      "description": "Respiratory rate 10-12/min - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_RR_10_12"
+      ],
+      "age": 50,
+      "clinical_findings": {},
+      "vital_signs": {
+        "respiratory_rate_per_min": 11
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_RR_10_12"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Respiratory rate - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-034",
+      "description": "SpO2 92-94% - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_SPO2_92_94"
+      ],
+      "age": 45,
+      "clinical_findings": {},
+      "vital_signs": {
+        "spo2_percent": 93
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_SPO2_92_94"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Oxygen saturation - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-035",
+      "description": "Systolic BP 90-100 mmHg - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_SBP_90_100"
+      ],
+      "age": 55,
+      "clinical_findings": {},
+      "vital_signs": {
+        "systolic_bp_mmhg": 95
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_SBP_90_100"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Blood pressure - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-036",
+      "description": "Temperature 38-39\u00c2\u00b0C - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "age": 30,
+      "clinical_findings": {},
+      "vital_signs": {
+        "temperature_c": 38.5
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Temperature - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-037",
+      "description": "Temperature 35-36\u00c2\u00b0C - YELLOW vital sign",
+      "criteria_tested": [
+        "YELLOW_TEMP_35_36"
+      ],
+      "age": 65,
+      "clinical_findings": {},
+      "vital_signs": {
+        "temperature_c": 35.5
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_TEMP_35_36"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card, Temperature - Yellow zone"
+    },
+    {
+      "scenario_id": "SCEN-045",
+      "description": "Multiple YELLOW vital signs - YELLOW acuity",
+      "criteria_tested": [
+        "YELLOW_HR_110_130",
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "age": 40,
+      "clinical_findings": {},
+      "vital_signs": {
+        "heart_rate_bpm": 120,
+        "temperature_c": 38.5
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_HR_110_130",
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "source_reference": "WHO IITT High-Risk Vital Signs Reference Card"
+    },
+    {
+      "scenario_id": "SCEN-039",
+      "description": "RED clinical finding overrides YELLOW vital sign",
+      "criteria_tested": [
+        "RED_AIRWAY_OBSTRUCTION",
+        "YELLOW_HR_110_130"
+      ],
+      "age": 40,
+      "clinical_findings": {
+        "airway_obstruction": "present"
+      },
+      "vital_signs": {
+        "heart_rate_bpm": 120
+      },
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "source_reference": "WHO IITT priority order"
+    },
+    {
+      "scenario_id": "SCEN-040",
+      "description": "Age 11 - OUT_OF_SCOPE",
+      "criteria_tested": [],
+      "age": 11,
+      "clinical_findings": {
+        "airway_obstruction": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "out_of_scope",
+      "expected_matched_criteria": [],
+      "source_reference": "Age eligibility boundary"
+    },
+    {
+      "scenario_id": "SCEN-041",
+      "description": "Age 12 - assessed normally",
+      "criteria_tested": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "age": 12,
+      "clinical_findings": {
+        "airway_obstruction": "present"
+      },
+      "vital_signs": {},
+      "expected_acuity": "red",
+      "expected_matched_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "source_reference": "Age eligibility boundary"
+    },
+    {
+      "scenario_id": "SCEN-042",
+      "description": "No criteria matched - UNASSESSED",
+      "criteria_tested": [],
+      "age": 45,
+      "clinical_findings": {},
+      "vital_signs": {},
+      "expected_acuity": "unassessed",
+      "expected_matched_criteria": [],
+      "source_reference": "Insufficient data handling"
+    },
+    {
+      "scenario_id": "SCEN-043",
+      "description": "Normal vitals only - GREEN",
+      "criteria_tested": [
+        "GREEN_MINOR_COMPLAINT"
+      ],
+      "age": 25,
+      "clinical_findings": {},
+      "vital_signs": {
+        "heart_rate_bpm": 75,
+        "respiratory_rate_per_min": 16,
+        "spo2_percent": 99,
+        "systolic_bp_mmhg": 120,
+        "temperature_c": 36.8
+      },
+      "expected_acuity": "green",
+      "expected_matched_criteria": [
+        "GREEN_MINOR_COMPLAINT"
+      ],
+      "source_reference": "WHO IITT Green pathway"
+    },
+    {
+      "scenario_id": "SCEN-044",
+      "description": "High fever without toxic appearance - YELLOW",
+      "criteria_tested": [
+        "YELLOW_HIGH_FEVER",
+        "YELLOW_TEMP_38_39"
+      ],
+      "age": 30,
+      "clinical_findings": {},
+      "vital_signs": {
+        "temperature_c": 38.5
+      },
+      "expected_acuity": "yellow",
+      "expected_matched_criteria": [
+        "YELLOW_HIGH_FEVER",
+        "YELLOW_TEMP_38_39"
+      ],
+      "source_reference": "WHO IITT Specific conditions - Infectious, Page 5"
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "description": "Synthetic evaluation scenarios for WeCare.AI clinical rules engine",
+    "source": "WHO IITT Routine Triage Tool (Age 12+) and High-Risk Vital Signs Reference Card",
+    "note": "All scenarios use synthetic data. Not clinically validated."
+  }
+}

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: wecare-ai-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: CORS_ORIGIN_REGEX
+        value: "^https?://.*"
+      - key: GROQ_API_KEY
+        sync: false

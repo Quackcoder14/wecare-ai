@@ -1,21 +1,21 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { useTranslation } from '../../i18n/context';
-import { Loader2, RotateCcw, AlertCircle, CheckCircle, Stethoscope } from 'lucide-react';
+import { useState, useCallback } from 'react';
+import { CheckCircle, RotateCcw, Loader2 } from 'lucide-react';
 import { getServices } from '../../services';
 import type { PatientDetail, VitalsInput } from '../../types/api';
-import { validatePatientCreate, formatVitalsForDisplay } from '../../services/patientService';
+import { formatTimeAgo } from '../../services/assessmentService';
 import { PatientIntakeForm } from '../intake/PatientIntakeForm';
 import { VitalsForm } from '../intake/VitalsForm';
-import { LoadingState, ErrorState, InlineError } from '../common';
+import { ErrorState, InlineError } from '../common';
 import { AcuityBadge, ReviewStatusBadge } from '../dashboard/AcuityBadge';
 
 interface ReassessmentFormProps {
   patient: PatientDetail;
   onComplete: () => Promise<void>;
   t: (key: string) => string;
+  onHighRisk: (assessment: any) => void;
 }
 
-export function ReassessmentForm({ patient, onComplete, t }: ReassessmentFormProps) {
+export function ReassessmentForm({ patient, onComplete, t, onHighRisk }: ReassessmentFormProps) {
   const services = getServices();
   const latestAssessment = patient.assessments[patient.assessments.length - 1];
 
@@ -93,7 +93,7 @@ export function ReassessmentForm({ patient, onComplete, t }: ReassessmentFormPro
     const newErrors: Record<string, string> = {};
     let valid = true;
 
-    if (!formData.age || formData.age === '') {
+    if (!formData.age || String(formData.age).trim() === '') {
       newErrors.age = t('intake.validation.required');
       valid = false;
     } else if (!Number.isInteger(Number(formData.age))) {
@@ -145,6 +145,7 @@ export function ReassessmentForm({ patient, onComplete, t }: ReassessmentFormPro
       );
 
       setResult(assessment);
+      if (assessment.acuity === 'red' || assessment.risk_level === 'HIGH') onHighRisk(assessment);
     } catch (err) {
       setError(err instanceof Error ? err.message : t('common.error'));
     } finally {
@@ -240,7 +241,7 @@ export function ReassessmentForm({ patient, onComplete, t }: ReassessmentFormPro
 
       <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
         <PatientIntakeForm
-          formData={formData}
+          formData={formData as any}
           errors={errors}
           touched={touched}
           onChange={handleChange}

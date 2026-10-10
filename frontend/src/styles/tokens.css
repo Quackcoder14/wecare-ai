@@ -1,22 +1,66 @@
 :root {
-  /* Color palette */
-  --color-powder-blue: #B8D9EF;
-  --color-charcoal: #30363B;
-  --color-teal: #148F91;
-  --color-dark-teal: #087F80;
-  --color-background: #F5F8FA;
-  --color-surface: #FFFFFF;
-  --color-pale-blue: #EAF5FA;
-  --color-text-secondary: #64717B;
-  --color-border: #D8E3EA;
-  --color-input-border: #CBD8E1;
+  /* ── Core powder-blue palette ─────────────────────────────────── */
+  --color-pb-50:  #f0f8ff;   /* Almost white, body bg */
+  --color-pb-100: #daeeff;   /* Page surface tint */
+  --color-pb-200: #b8dcf8;   /* Powder blue — borders, accents */
+  --color-pb-300: #8ec6f0;   /* Slider track, pill bg */
+  --color-pb-400: #5aaee6;   /* Hover accents */
+  --color-pb-500: #2f8fd4;   /* Mid-teal-blue */
 
-  /* Acuity status colors - reserved for clinical use only */
-  --color-acuity-red: #D64545;
-  --color-acuity-yellow: #E3AE32;
-  --color-acuity-green: #269A69;
+  /* Glass / surface palette */
+  --glass-bg:          rgba(255,255,255,0.62);
+  --glass-bg-strong:   rgba(255,255,255,0.78);
+  --glass-bg-subtle:   rgba(255,255,255,0.42);
+  --glass-border:      rgba(255,255,255,0.75);
+  --glass-border-soft: rgba(255,255,255,0.45);
+  --glass-blur:        blur(18px);
+  --glass-blur-sm:     blur(10px);
+  --glass-shadow:      0 8px 32px rgba(8,70,120,0.10), 0 1px 4px rgba(8,70,120,0.06);
+  --glass-shadow-md:   0 16px 48px rgba(8,70,120,0.14), 0 2px 8px rgba(8,70,120,0.07);
+  --glass-shadow-lg:   0 24px 64px rgba(8,70,120,0.18), 0 4px 16px rgba(8,70,120,0.10);
 
-  /* Spacing scale */
+  /* ── Teal accent (keep clinical identity) ─────────────────────── */
+  --color-teal:         #148F91;
+  --color-teal-500:     #148F91;
+  --color-teal-700:     #0E6566;
+  --color-teal-800:     #08494A;
+  --color-teal-100:     #E0F2F1;
+  --color-teal-200:     #B2DFDB;
+  --color-dark-teal:    #087F80;
+
+  /* Legacy aliases (keep components working) */
+  --color-powder-blue:  var(--color-pb-200);
+  --color-charcoal:     #1a3244;
+  --color-background:   var(--color-pb-50);
+  --color-surface:      var(--glass-bg);
+  --color-pale-blue:    var(--color-pb-100);
+  --color-text-secondary: #5a7a96;
+  --color-border:       rgba(184,220,248,0.6);
+  --color-input-border: rgba(142,198,240,0.6);
+
+  /* ── Clinical acuity colors — unchanged ──────────────────────── */
+  --color-acuity-red:    #D64545;
+  --color-acuity-yellow: #D99B16;
+  --color-acuity-green:  #1E915E;
+
+  /* Extended status colors */
+  --color-yellow-50:  #FEFCE8;
+  --color-yellow-100: #FEF9C3;
+  --color-yellow-200: #FEF08A;
+  --color-yellow-400: #FACC15;
+  --color-yellow-500: #EAB308;
+  --color-yellow-600: #CA8A04;
+  --color-yellow-700: #A16207;
+  --color-yellow-800: #854D0E;
+
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+
+  /* ── Spacing scale ───────────────────────────────────────────── */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -26,46 +70,51 @@
   --space-7: 48px;
   --space-8: 64px;
 
-  /* Border radius */
-  --radius-control: 9px;
-  --radius-card: 14px;
-  --radius-button: 8px;
+  /* ── Border radii ────────────────────────────────────────────── */
+  --radius-control: 10px;
+  --radius-card:    18px;
+  --radius-button:  10px;
+  --radius-pill:    9999px;
+  --radius-glass:   20px;
 
-  /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
+  /* ── Typography ──────────────────────────────────────────────── */
+  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:   'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+  --font-size-xs:   0.75rem;
+  --font-size-sm:   0.875rem;
   --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
+  --font-size-lg:   1.125rem;
+  --font-size-xl:   1.25rem;
+  --font-size-2xl:  1.5rem;
+  --font-size-3xl:  2rem;
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
   --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.625;
+  --font-weight-bold:     700;
+  --line-height-tight:    1.25;
+  --line-height-normal:   1.5;
+  --line-height-relaxed:  1.625;
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 200ms ease;
-  --transition-slow: 300ms ease;
+  /* ── Transitions ─────────────────────────────────────────────── */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   320ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(48, 54, 59, 0.05);
-  --shadow-md: 0 4px 6px rgba(48, 54, 59, 0.07);
-  --shadow-lg: 0 10px 15px rgba(48, 54, 59, 0.1);
+  /* ── Shadows ─────────────────────────────────────────────────── */
+  --shadow-xs:  0 1px 3px rgba(8,70,120,0.07);
+  --shadow-sm:  var(--glass-shadow);
+  --shadow-md:  var(--glass-shadow-md);
+  --shadow-lg:  var(--glass-shadow-lg);
+  --shadow-xl:  0 32px 80px rgba(8,70,120,0.22);
 
-  /* Layout */
-  --sidebar-width: 260px;
+  /* ── Layout ──────────────────────────────────────────────────── */
+  --sidebar-width:          256px;
   --sidebar-collapsed-width: 72px;
-  --header-height: 64px;
-  --content-max-width: 1400px;
+  --header-height:          64px;
+  --content-max-width:      1400px;
 
-  /* Focus */
-  --focus-ring: 0 0 0 3px rgba(20, 143, 145, 0.3);
+  /* ── Focus ring ──────────────────────────────────────────────── */
+  --focus-ring:       0 0 0 3px rgba(20, 143, 145, 0.3);
   --focus-ring-error: 0 0 0 3px rgba(214, 69, 69, 0.3);
 }
 
@@ -76,7 +125,6 @@
     --transition-normal: 0ms;
     --transition-slow: 0ms;
   }
-
   *,
   *::before,
   *::after {

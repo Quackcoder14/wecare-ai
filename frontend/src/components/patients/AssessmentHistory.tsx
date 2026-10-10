@@ -1,5 +1,3 @@
-import React from 'react';
-import { useTranslation } from '../../i18n/context';
 import { FileText, Clock, AlertTriangle } from 'lucide-react';
 import { AcuityBadge } from '../dashboard/AcuityBadge';
 import type { AssessmentResponse } from '../../types/api';
@@ -7,14 +5,13 @@ import type { AssessmentResponse } from '../../types/api';
 interface AssessmentHistoryProps {
   assessments: AssessmentResponse[];
   formatTimeAgo: (timestamp: string) => string;
-  getAcuityDisplay: (category: string) => { label: string; color: string; bgColor: string };
+  getAcuityDisplay?: (category: string) => { label: string; color: string; bgColor: string };
   t: (key: string) => string;
 }
 
 export function AssessmentHistory({
   assessments,
   formatTimeAgo,
-  getAcuityDisplay,
   t,
 }: AssessmentHistoryProps) {
   if (assessments.length === 0) {
@@ -40,7 +37,7 @@ export function AssessmentHistory({
       </div>
 
       <div className="space-y-3" role="list">
-        {sortedAssessments.map((assessment, index) => (
+        {sortedAssessments.map((assessment) => (
           <article
             key={assessment.assessment_id}
             className="card p-4 hover:bg-pale-blue/50 transition-colors"

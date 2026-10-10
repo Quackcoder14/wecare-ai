@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bgGrad192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F4FE"/>
+      <stop offset="50%" stop-color="#CFE7FB"/>
+      <stop offset="100%" stop-color="#9AD0F5"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E9F9F"/>
+      <stop offset="100%" stop-color="#086B6D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded app icon -->
+  <rect width="192" height="192" rx="42" fill="url(#bgGrad192)"/>
+  <rect x="6" y="6" width="180" height="180" rx="36" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+
+  <!-- Shield Shape -->
+  <path d="M96 34 C126 34 146 47 146 70 C146 113 110 144 96 156 C82 144 46 113 46 70 C46 47 66 34 96 34 Z"
+        fill="url(#shieldGrad192)"/>
+
+  <!-- Pulse Line in White -->
+  <path d="M72 95 L85 95 L91 78 L99 113 L106 88 L112 100 L120 100"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>

@@ -6,14 +6,16 @@ import { getServices } from '../../services';
 import { PageHeader } from '../common/PageHeader';
 import { AssessmentHistory } from './AssessmentHistory';
 import { ReassessmentForm } from './ReassessmentForm';
-import { LoadingState, ErrorState, InlineError } from '../common';
+import { LoadingState, ErrorState } from '../common';
 import { ConfirmDialog } from '../common/ConfirmDialog';
-import { formatTimeAgo, getAcuityDisplay, getReviewStatusDisplay } from '../../services/assessmentService';
+import { formatTimeAgo, getAcuityDisplay } from '../../services/assessmentService';
 import { AcuityBadge, ReviewStatusBadge } from '../dashboard/AcuityBadge';
 import { formatVitalsForDisplay } from '../../services/patientService';
+import { useNotifications } from '../../context/NotificationsContext';
 
 interface PatientDetail {
   patient_id: string;
+  name?: string;
   age: number;
   symptoms: string[];
   symptom_onset?: string;
@@ -46,10 +48,11 @@ interface AssessmentResponse {
 type Tab = 'overview' | 'history' | 'reassess';
 
 export function PatientDetailsPage() {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const services = getServices();
+  const { pushHighRiskAlert } = useNotifications();
 
   const [patient, setPatient] = useState<PatientDetail | null>(null);
   const [loading, setLoading] = useState(true);
@@ -100,6 +103,16 @@ export function PatientDetailsPage() {
     setActiveTab('overview');
   };
 
+  const handleHighRisk = (assessment: AssessmentResponse) => {
+    pushHighRiskAlert({
+      patientId: patient?.patient_id || id || '',
+      patientIdDisplay: patient?.name || patient?.patient_id || id || '',
+      acuity: 'red',
+      riskScore: (assessment as AssessmentResponse & { risk_score?: number }).risk_score ?? 85,
+      reason: assessment.reasons[0] || 'Immediate clinical review is required.',
+    });
+  };
+
   if (loading) {
     return (
       <div className="max-w-4xl mx-auto animate-fade-in">
@@ -127,8 +140,6 @@ export function PatientDetailsPage() {
   }
 
   const latestAssessment = patient.assessments[patient.assessments.length - 1];
-  const acuityDisplay = getAcuityDisplay(latestAssessment?.acuity || 'unknown', t);
-  const reviewDisplay = getReviewStatusDisplay(latestAssessment?.review_required ? 'pending' : 'not_required', t);
 
   return (
     <div className="max-w-4xl mx-auto animate-fade-in">
@@ -147,8 +158,8 @@ export function PatientDetailsPage() {
       <div className="card p-5 mb-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold text-charcoal">{patient.patient_id}</h2>
-            <p className="text-secondary">{t('patientDetails.overview.age')}: {patient.age}</p>
+            <h2 className="text-xl font-bold text-charcoal">{patient.name || patient.patient_id}</h2>
+            <p className="text-secondary">{patient.patient_id} · {t('patientDetails.overview.age')}: {patient.age}</p>
           </div>
           <div className="flex items-center gap-4 flex-wrap">
             <AcuityBadge category={latestAssessment?.acuity || 'unknown'} size="lg" />
@@ -231,9 +242,9 @@ export function PatientDetailsPage() {
                           <AlertCircle className="w-4 h-4" aria-hidden="true" />
                           {t('patientDetails.overview.missingInfo')}
                         </h4>
-                        <ul className="space-y-1" role="list">
+                        <ul className="space-y-1 list-none p-0 m-0" role="list">
                           {latestAssessment.missing_information.map((item, index) => (
-                            <li key={index} className="text-sm text-yellow-700">• {item}</li>
+                            <li key={index} className="text-sm text-yellow-700">{item}</li>
                           ))}
                         </ul>
                       </div>
@@ -345,6 +356,7 @@ export function PatientDetailsPage() {
               patient={patient}
               onComplete={handleReassessmentComplete}
               t={t}
+              onHighRisk={handleHighRisk}
             />
           )}
         </div>

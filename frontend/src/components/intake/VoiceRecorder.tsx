@@ -353,56 +353,7 @@ export function VoiceRecorder({ locale, onTranscript, initialTranscript = '', t 
       {/* Controls based on state */}
       {controls}
 
-              {canCancel && (
-                <button
-                  onClick={handleCancel}
-                  disabled={isUploadingOrTranscribing}
-                  className="btn btn-outline flex items-center gap-2"
-                >
-                  <X className="w-4 h-4" aria-hidden="true" />
-                  {t('voice.buttons.cancelRecording')}
-                </button>
-              )}
-
-              {isStopped && (
-                <button
-                  onClick={handleUpload}
-                  className="btn btn-primary flex items-center gap-2"
-                >
-                  <Upload className="w-4 h-4" aria-hidden="true" />
-                  {t('voice.buttons.retry')}
-                </button>
-              )}
-
-              {isError && (
-                <button
-                  onClick={handleRetry}
-                  className="btn btn-primary flex items-center gap-2"
-                >
-                  <RotateCcw className="w-4 h-4" aria-hidden="true" />
-                  {t('voice.buttons.retry')}
-                </button>
-              )}
-
-              {isReady && (
-                <>
-                  <button
-                    onClick={handleClear}
-                    className="btn btn-outline flex items-center gap-2"
-                  >
-                    <X className="w-4 h-4" aria-hidden="true" />
-                    {t('voice.buttons.clear')}
-                  </button>
-                  <button
-                    onClick={handleConfirm}
-                    className="btn btn-primary flex items-center gap-2"
-                  >
-                    <CheckCircle className="w-4 h-4" aria-hidden="true" />
-                    {t('voice.buttons.confirm')}
-                  </button>
-                </>
-              )}
-            {/* Transcript editor */}
+      {/* Transcript editor */}
       {(state === 'ready' || state === 'error' || transcript) && (
         <div className="border-t border-border pt-4">
           <label htmlFor="transcript" className="label">

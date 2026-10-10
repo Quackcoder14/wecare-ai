@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from '../../i18n/context';
 
 interface SummaryCardProps {
   title?: string;
@@ -18,8 +17,6 @@ export function SummaryCard({
   loading = false,
   className = '',
 }: SummaryCardProps) {
-  const { t } = useTranslation();
-
   const variantStyles = {
     default: 'border-l-4 border-teal',
     red: 'border-l-4 border-acuity-red',
@@ -47,7 +44,7 @@ export function SummaryCard({
           <p className="mt-1 text-2xl font-bold text-charcoal">{value}</p>
         </div>
         {icon && (
-          <div className={`p-2 rounded-lg ${
+          <div className={`w-10 h-10 flex items-center justify-center rounded-lg shrink-0 ${
             variant === 'red' ? 'bg-acuity-red/10 text-acuity-red' :
             variant === 'yellow' ? 'bg-yellow-100 text-yellow-600' :
             variant === 'green' ? 'bg-acuity-green/10 text-acuity-green' :

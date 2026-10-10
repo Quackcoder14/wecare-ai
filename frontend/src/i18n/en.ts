@@ -6,8 +6,10 @@ export const en: Translations = {
     subtitle: 'Emergency Triage',
   },
   nav: {
+    home: 'Home',
     dashboard: 'Dashboard',
     newPatient: 'New Patient',
+    notifications: 'Notifications',
     patientRecords: 'Patient Records',
     help: 'Help',
   },

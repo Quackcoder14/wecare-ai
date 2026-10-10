@@ -6,8 +6,10 @@ export const ta: Translations = {
     subtitle: 'அவசர நேரடி வகைப்பாடு',
   },
   nav: {
+    home: 'முகப்பு',
     dashboard: 'கட்டுப்பாட்டு பலகை',
     newPatient: 'புதிய ரோகி',
+    notifications: 'அறிவிப்புகள்',
     patientRecords: 'ரோகி பதிவுகள்',
     help: 'உதவி',
   },

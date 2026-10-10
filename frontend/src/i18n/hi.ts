@@ -6,8 +6,10 @@ export const hi: Translations = {
     subtitle: 'आपातकालीन ट्रायज',
   },
   nav: {
+    home: 'होम',
     dashboard: 'डैशबोर्ड',
     newPatient: 'नया मरीज़',
+    notifications: 'सूचनाएं',
     patientRecords: 'मरीज़ रिकॉर्ड',
     help: 'सहायता',
   },

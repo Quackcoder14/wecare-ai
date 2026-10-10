@@ -18,14 +18,11 @@ class ApiClient {
     const url = `${this.getBaseUrl()}${endpoint}`;
 
     const headers: HeadersInit = {
-      'Content-Type': 'application/json',
+      ...(options.body && !(options.body instanceof FormData)
+        ? { 'Content-Type': 'application/json' }
+        : {}),
       ...options.headers,
     };
-
-    // Don't set Content-Type for FormData
-    if (options.body instanceof FormData) {
-      delete (headers as Record<string, string>)['Content-Type'];
-    }
 
     try {
       const response = await fetch(url, {

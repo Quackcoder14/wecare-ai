@@ -2,6 +2,8 @@ import { useTranslation } from '../../i18n/context';
 import { LanguageSelector } from './LanguageSelector';
 import { ConnectionStatus } from './ConnectionStatus';
 import { Menu, Bell, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useNotifications } from '../../context/NotificationsContext';
 
 interface TopbarProps {
   onMenuClick: () => void;
@@ -10,9 +12,17 @@ interface TopbarProps {
 
 export function Topbar({ onMenuClick, isMobile }: TopbarProps) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { unreadCount } = useNotifications();
 
   return (
-    <header className="sticky top-0 z-30 h-16 bg-surface/95 backdrop-blur-sm border-b border-border flex items-center px-4 md:px-6">
+    <header className="sticky top-0 z-30 h-16 border-b flex items-center px-4 md:px-6" style={{
+      background: 'rgba(255,255,255,0.72)',
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
+      borderColor: 'rgba(255,255,255,0.65)',
+      boxShadow: '0 2px 12px rgba(8,70,120,0.07)',
+    }}>
       {/* Mobile menu button */}
       {isMobile && (
         <button
@@ -40,13 +50,13 @@ export function Topbar({ onMenuClick, isMobile }: TopbarProps) {
         {/* Connection status */}
         <ConnectionStatus />
 
-        {/* Notifications (placeholder) */}
         <button
+          onClick={() => navigate('/notifications')}
           className="btn btn-ghost p-2 relative"
           aria-label="Notifications"
         >
           <Bell className="w-5 h-5" aria-hidden="true" />
-          <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-acuity-red" aria-hidden="true" />
+          {unreadCount > 0 && <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-acuity-red" aria-hidden="true" />}
         </button>
 
         {/* User menu (placeholder) */}

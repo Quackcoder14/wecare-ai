@@ -10,7 +10,6 @@ import type {
   QueueItem,
   QueueResponse,
   VoiceTranscribeResponse,
-  VitalsInput,
   AcuityCategory,
 } from '../types/api';
 
@@ -18,6 +17,7 @@ import type {
 const MOCK_PATIENTS: PatientDetail[] = [
   {
     patient_id: 'PAT-001',
+    name: 'Meera Krishnan',
     age: 67,
     symptoms: ['Chest pain', 'Shortness of breath'],
     symptom_onset: '2 hours ago',
@@ -52,6 +52,7 @@ const MOCK_PATIENTS: PatientDetail[] = [
   },
   {
     patient_id: 'PAT-002',
+    name: 'Arjun Nair',
     age: 34,
     symptoms: ['Abdominal pain', 'Nausea'],
     symptom_onset: '4 hours ago',
@@ -86,6 +87,7 @@ const MOCK_PATIENTS: PatientDetail[] = [
   },
   {
     patient_id: 'PAT-003',
+    name: 'Kavya Reddy',
     age: 45,
     symptoms: ['Minor laceration', 'Bleeding controlled'],
     symptom_onset: '30 minutes ago',
@@ -119,6 +121,7 @@ const MOCK_PATIENTS: PatientDetail[] = [
   },
   {
     patient_id: 'PAT-004',
+    name: 'Ravi Menon',
     age: 72,
     symptoms: ['Confusion', 'Fall'],
     symptom_onset: '1 hour ago',
@@ -153,6 +156,7 @@ const MOCK_PATIENTS: PatientDetail[] = [
   },
   {
     patient_id: 'PAT-005',
+    name: 'Priya Shah',
     age: 28,
     symptoms: ['Anxiety', 'Palpitations'],
     symptom_onset: '20 minutes ago',
@@ -199,6 +203,7 @@ function generateMockQueue(): QueueItem[] {
 
     return {
       patient_id: patient.patient_id,
+      patient_name: patient.name,
       age: patient.age,
       acuity: latestAssessment.acuity,
       assessment_summary: latestAssessment.reasons[0] || 'Assessment completed',
@@ -220,6 +225,8 @@ export const mockPatientService = {
     const patientId = `PAT-${String(mockPatientCounter++).padStart(3, '0')}`;
     const newPatient: PatientDetail = {
       patient_id: patientId,
+      name: data.name,
+      gender: data.gender,
       age: data.age,
       symptoms: data.symptoms,
       symptom_onset: data.symptom_onset,
@@ -235,6 +242,8 @@ export const mockPatientService = {
     mockPatients.unshift(newPatient);
     return {
       patient_id: patientId,
+      name: data.name,
+      gender: data.gender,
       age: data.age,
       symptoms: data.symptoms,
       symptom_onset: data.symptom_onset,
@@ -254,6 +263,11 @@ export const mockPatientService = {
     return { ...patient };
   },
 
+  async listPatients(): Promise<PatientResponse[]> {
+    await mockDelay(300);
+    return mockPatients.map(({ assessments, ...patient }) => patient);
+  },
+
   async updatePatient(patientId: string, data: Partial<PatientCreateRequest>): Promise<PatientResponse> {
     await mockDelay();
     const index = mockPatients.findIndex(p => p.patient_id === patientId);
@@ -261,6 +275,13 @@ export const mockPatientService = {
 
     mockPatients[index] = { ...mockPatients[index], ...data };
     return mockPatients[index];
+  },
+
+  async deletePatient(patientId: string): Promise<void> {
+    await mockDelay(300);
+    const index = mockPatients.findIndex(p => p.patient_id === patientId);
+    if (index === -1) throw new Error('Patient not found');
+    mockPatients.splice(index, 1);
   },
 };
 
@@ -362,7 +383,7 @@ export const mockQueueService = {
 };
 
 export const mockVoiceService = {
-  async transcribe(audioBlob: Blob, languageCode: string): Promise<VoiceTranscribeResponse> {
+  async transcribe(_audioBlob: Blob, languageCode: string): Promise<VoiceTranscribeResponse> {
     await mockDelay(1500);
 
     // Simulate different transcripts based on language

@@ -7,7 +7,6 @@ import type {
   AcknowledgementResponse,
   AcuityCategory,
 } from '../types/api';
-import type { Translations } from '../i18n';
 
 export interface AssessmentService {
   createAssessment(data: AssessmentCreateRequest, t: (key: string) => string): Promise<AssessmentResponse>;

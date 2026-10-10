@@ -18,8 +18,10 @@ export interface Translations {
 
   // Navigation
   nav: {
+    home: string;
     dashboard: string;
     newPatient: string;
+    notifications: string;
     patientRecords: string;
     help: string;
   };

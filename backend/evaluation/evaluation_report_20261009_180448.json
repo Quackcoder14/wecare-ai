@@ -1,0 +1,729 @@
+{
+  "timestamp": "2026-10-09T18:04:48.864865",
+  "rules_version": "WHO-IITT-12PLUS-LOCAL-v1",
+  "total_scenarios": 45,
+  "passed": 44,
+  "failed": 1,
+  "errors": 0,
+  "results": [
+    {
+      "scenario_id": "SCEN-001",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "actual_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.28150001890026033,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-002",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_SEVERE_RESPIRATORY_DISTRESS"
+      ],
+      "actual_criteria": [
+        "RED_SEVERE_RESPIRATORY_DISTRESS"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.13569998554885387,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-003",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_CENTRAL_CYANOSIS"
+      ],
+      "actual_criteria": [
+        "RED_CENTRAL_CYANOSIS"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.10410000686533749,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-004",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_UNABLE_TO_SPEAK"
+      ],
+      "actual_criteria": [
+        "RED_UNABLE_TO_SPEAK"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.09440002031624317,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-005",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_SHOCK"
+      ],
+      "actual_criteria": [
+        "RED_SHOCK"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.09439999121241271,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-006",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_CAPILLARY_REFILL_GT_3S"
+      ],
+      "actual_criteria": [
+        "RED_CAPILLARY_REFILL_GT_3S"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08999998681247234,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-007",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_WEAK_PULSES"
+      ],
+      "actual_criteria": [
+        "RED_WEAK_PULSES"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08650001836940646,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-008",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_COLD_EXTREMITIES"
+      ],
+      "actual_criteria": [
+        "RED_COLD_EXTREMITIES"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08690002141520381,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-009",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_ALTERED_MENTAL_STATUS"
+      ],
+      "actual_criteria": [
+        "RED_ALTERED_MENTAL_STATUS"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08679999154992402,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-010",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_UNCONSCIOUS"
+      ],
+      "actual_criteria": [
+        "RED_UNCONSCIOUS"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.09079999290406704,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-011",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_SEIZURE"
+      ],
+      "actual_criteria": [
+        "RED_SEIZURE"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08739999611862004,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-012",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_MAJOR_TRAUMA"
+      ],
+      "actual_criteria": [
+        "RED_MAJOR_TRAUMA"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08749999688006938,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-013",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_UNCONTROLLED_BLEEDING"
+      ],
+      "actual_criteria": [
+        "RED_UNCONTROLLED_BLEEDING"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.0889000075403601,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-014",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_SUSPECTED_SPINAL"
+      ],
+      "actual_criteria": [
+        "RED_SUSPECTED_SPINAL"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08699999307282269,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-015",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_MAJOR_BURNS"
+      ],
+      "actual_criteria": [
+        "RED_MAJOR_BURNS"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08169998181983829,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-016",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_CHEST_PAIN_CARDIAC"
+      ],
+      "actual_criteria": [
+        "RED_CHEST_PAIN_CARDIAC"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08170001092366874,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-017",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_ACS_SUSPECTED"
+      ],
+      "actual_criteria": [
+        "RED_ACS_SUSPECTED"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08229998638853431,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-018",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_ACUTE_ABDOMEN"
+      ],
+      "actual_criteria": [
+        "RED_ACUTE_ABDOMEN"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08329999400302768,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-019",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_TOXIC_APPEARANCE"
+      ],
+      "actual_criteria": [
+        "RED_TOXIC_APPEARANCE"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08170001092366874,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-020",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_SEVERE_PAIN"
+      ],
+      "actual_criteria": [
+        "RED_SEVERE_PAIN"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.09330001194030046,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-021",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_POISONING"
+      ],
+      "actual_criteria": [
+        "RED_POISONING"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08239998714998364,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-022",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_HR_GT_130"
+      ],
+      "actual_criteria": [
+        "RED_HR_GT_130"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.09050001972354949,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-023",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_HR_LT_50"
+      ],
+      "actual_criteria": [
+        "RED_HR_LT_50"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.083099992480129,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-024",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_RR_GT_30"
+      ],
+      "actual_criteria": [
+        "RED_RR_GT_30"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.11449999874457717,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-025",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_RR_LT_10"
+      ],
+      "actual_criteria": [
+        "RED_RR_LT_10"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08190001244656742,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-026",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_SPO2_LT_92"
+      ],
+      "actual_criteria": [
+        "RED_SPO2_LT_92"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.0811999780125916,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-027",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_SBP_LT_90"
+      ],
+      "actual_criteria": [
+        "RED_SBP_LT_90"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.0824000162538141,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-028",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_TEMP_GT_39"
+      ],
+      "actual_criteria": [
+        "RED_TEMP_GT_39"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08489997708238661,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-029",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_TEMP_LT_35"
+      ],
+      "actual_criteria": [
+        "RED_TEMP_LT_35"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08049997268244624,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-030",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_HR_110_130"
+      ],
+      "actual_criteria": [
+        "YELLOW_HR_110_130"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.09620000491850078,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-031",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_HR_50_60"
+      ],
+      "actual_criteria": [
+        "YELLOW_HR_50_60"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.09350001346319914,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-032",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_RR_25_30"
+      ],
+      "actual_criteria": [
+        "YELLOW_RR_25_30"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08919998072087765,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-033",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_RR_10_12"
+      ],
+      "actual_criteria": [
+        "YELLOW_RR_10_12"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08839997462928295,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-034",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_SPO2_92_94"
+      ],
+      "actual_criteria": [
+        "YELLOW_SPO2_92_94"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.11000002268701792,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-035",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_SBP_90_100"
+      ],
+      "actual_criteria": [
+        "YELLOW_SBP_90_100"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08629998774267733,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-036",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "actual_criteria": [
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.10130001464858651,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-037",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_TEMP_35_36"
+      ],
+      "actual_criteria": [
+        "YELLOW_TEMP_35_36"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08820000221021473,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-045",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_HR_110_130",
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "actual_criteria": [
+        "YELLOW_HR_110_130",
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "missing_info_count": 24,
+      "execution_time_ms": 0.11190000805072486,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-039",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "actual_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "missing_info_count": 24,
+      "execution_time_ms": 0.09210000280290842,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-040",
+      "passed": true,
+      "expected_acuity": "out_of_scope",
+      "actual_acuity": "out_of_scope",
+      "expected_criteria": [],
+      "actual_criteria": [],
+      "missing_info_count": 1,
+      "execution_time_ms": 0.05020000389777124,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-041",
+      "passed": true,
+      "expected_acuity": "red",
+      "actual_acuity": "red",
+      "expected_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "actual_criteria": [
+        "RED_AIRWAY_OBSTRUCTION"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.08369999704882503,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-042",
+      "passed": true,
+      "expected_acuity": "unassessed",
+      "actual_acuity": "unassessed",
+      "expected_criteria": [],
+      "actual_criteria": [],
+      "missing_info_count": 26,
+      "execution_time_ms": 0.10380000458098948,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-043",
+      "passed": true,
+      "expected_acuity": "green",
+      "actual_acuity": "green",
+      "expected_criteria": [
+        "GREEN_MINOR_COMPLAINT"
+      ],
+      "actual_criteria": [
+        "GREEN_MINOR_COMPLAINT"
+      ],
+      "missing_info_count": 21,
+      "execution_time_ms": 0.13520001084543765,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-044",
+      "passed": true,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_HIGH_FEVER",
+        "YELLOW_TEMP_38_39"
+      ],
+      "actual_criteria": [
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "missing_info_count": 25,
+      "execution_time_ms": 0.10289999772794545,
+      "error": null
+    },
+    {
+      "scenario_id": "SCEN-045",
+      "passed": false,
+      "expected_acuity": "yellow",
+      "actual_acuity": "yellow",
+      "expected_criteria": [
+        "YELLOW_HR_110_130",
+        "YELLOW_TEMP_38_39"
+      ],
+      "actual_criteria": [
+        "YELLOW_HR_110_130",
+        "YELLOW_TEMP_38_39",
+        "YELLOW_HIGH_FEVER"
+      ],
+      "missing_info_count": 24,
+      "execution_time_ms": 0.11520000407472253,
+      "error": null
+    }
+  ],
+  "acuity_confusion": {
+    "out_of_scope": {
+      "out_of_scope": 1,
+      "unassessed": 0,
+      "green": 0,
+      "yellow": 0,
+      "red": 0
+    },
+    "unassessed": {
+      "out_of_scope": 0,
+      "unassessed": 1,
+      "green": 0,
+      "yellow": 0,
+      "red": 0
+    },
+    "green": {
+      "out_of_scope": 0,
+      "unassessed": 0,
+      "green": 1,
+      "yellow": 0,
+      "red": 0
+    },
+    "yellow": {
+      "out_of_scope": 0,
+      "unassessed": 0,
+      "green": 0,
+      "yellow": 11,
+      "red": 0
+    },
+    "red": {
+      "out_of_scope": 0,
+      "unassessed": 0,
+      "green": 0,
+      "yellow": 0,
+      "red": 31
+    }
+  },
+  "under_triage_count": 0,
+  "over_triage_count": 0,
+  "unassessed_count": 1,
+  "avg_execution_time_ms": 0.09634222240290707
+}

@@ -5,12 +5,13 @@ import type {
   PatientDetail,
   VitalsInput,
 } from '../types/api';
-import type { Translations } from '../i18n';
 
 export interface PatientService {
   createPatient(data: PatientCreateRequest, t: (key: string) => string): Promise<PatientResponse>;
   getPatient(patientId: string, t: (key: string) => string): Promise<PatientDetail>;
+  listPatients(t: (key: string) => string): Promise<PatientResponse[]>;
   updatePatient(patientId: string, data: Partial<PatientCreateRequest>, t: (key: string) => string): Promise<PatientResponse>;
+  deletePatient(patientId: string, t: (key: string) => string): Promise<void>;
 }
 
 // Real API implementation
@@ -31,9 +32,25 @@ export const realPatientService: PatientService = {
     }
   },
 
+  async listPatients(t) {
+    try {
+      return await apiClient.get<PatientResponse[]>('/api/patients');
+    } catch (error) {
+      throw new Error(formatApiError(error, t));
+    }
+  },
+
   async updatePatient(patientId, data, t) {
     try {
       return await apiClient.patch<PatientResponse>(`/api/patients/${patientId}`, data);
+    } catch (error) {
+      throw new Error(formatApiError(error, t));
+    }
+  },
+
+  async deletePatient(patientId, t) {
+    try {
+      await apiClient.delete<void>(`/api/patients/${patientId}`);
     } catch (error) {
       throw new Error(formatApiError(error, t));
     }
@@ -58,15 +75,15 @@ export function validatePatientCreate(data: PatientCreateRequest, t: (key: strin
   const errors: Record<string, string> = {};
 
   // Age validation
-  if (data.age === undefined || data.age === null || data.age === '') {
+  if (data.age === undefined || data.age === null || (data.age as unknown) === '') {
     errors.age = t('intake.validation.required');
-  } else if (!Number.isInteger(data.age)) {
+  } else if (isNaN(Number(data.age)) || !Number.isInteger(Number(data.age))) {
     errors.age = t('intake.validation.mustBeInteger');
-  } else if (data.age <= 0) {
+  } else if (Number(data.age) <= 0) {
     errors.age = t('intake.validation.mustBePositive');
-  } else if (data.age > 150) {
+  } else if (Number(data.age) > 150) {
     errors.age = t('intake.validation.maxValue');
-  } else if (data.age < 12) {
+  } else if (Number(data.age) < 12) {
     // This is a warning, not an error - we allow submission but show warning
   }
 

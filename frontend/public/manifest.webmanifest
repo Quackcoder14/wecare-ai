@@ -1,0 +1,56 @@
+{
+  "name": "WeCare.AI — Emergency Triage",
+  "short_name": "WeCare.AI",
+  "description": "AI-Powered Multilingual Emergency Triage Decision Support & Patient Prioritization",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#EBF3FA",
+  "theme_color": "#086B6D",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Patient Triage",
+      "short_name": "New Intake",
+      "description": "Start triage intake for a newly arrived patient",
+      "url": "/new-patient",
+      "icons": [{ "src": "/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Priority Queue",
+      "short_name": "Queue",
+      "description": "View live prioritized patient queue",
+      "url": "/dashboard",
+      "icons": [{ "src": "/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Acuity Alerts",
+      "short_name": "Alerts",
+      "description": "View urgent high-risk notifications",
+      "url": "/notifications",
+      "icons": [{ "src": "/icon-192.svg", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["medical", "health", "productivity"]
+}

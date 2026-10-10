@@ -5,6 +5,8 @@
 
 // Patient types
 export interface PatientCreateRequest {
+  name?: string;
+  gender?: string;
   age: number;
   symptoms: string[];
   symptom_onset?: string;
@@ -20,11 +22,14 @@ export interface VitalsInput {
   respiratory_rate_per_min?: number;
   spo2_percent?: number;
   systolic_bp_mmhg?: number;
+  diastolic_bp_mmhg?: number;
   temperature_c?: number;
 }
 
 export interface PatientResponse {
   patient_id: string;
+  name?: string;
+  gender?: string;
   age: number;
   symptoms: string[];
   symptom_onset?: string;
@@ -43,6 +48,12 @@ export interface AssessmentCreateRequest {
   patient_id: string;
 }
 
+export interface ContributingFactor {
+  name: string;
+  percentage: number;
+  raw_percentage: number;
+}
+
 export interface AssessmentResponse {
   assessment_id: string;
   patient_id: string;
@@ -52,6 +63,13 @@ export interface AssessmentResponse {
   review_required: boolean;
   rules_version: string;
   assessed_at: string;
+  risk_score?: number;
+  risk_level?: 'LOW' | 'MEDIUM' | 'HIGH' | string;
+  confidence?: number;
+  recommended_department?: string;
+  contributing_factors?: ContributingFactor[];
+  clinical_summary?: string;
+  ai_source?: 'groq' | 'rules' | string;
 }
 
 export interface PatientDetail extends PatientResponse {
@@ -68,6 +86,7 @@ export interface AcuityDisplay {
 // Queue types
 export interface QueueItem {
   patient_id: string;
+  patient_name?: string;
   age: number;
   acuity: AcuityCategory;
   assessment_summary: string;

@@ -6,8 +6,10 @@ export const te: Translations = {
     subtitle: 'ఎమర్జెన్సీ ట్రైజ్',
   },
   nav: {
+    home: 'హోమ్',
     dashboard: 'డాష్‌బోర్డ్',
-    newPatient: 'নতুন রোগী',
+    newPatient: 'నూతన రోగి',
+    notifications: 'నోటిఫికేషన్‌లు',
     patientRecords: 'రోగి రికార్డులు',
     help: 'సహాయం',
   },

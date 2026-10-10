@@ -1,5 +1,3 @@
-import { useTranslation } from '../../i18n/context';
-
 interface PageHeaderProps {
   title: string;
   subtitle?: string;
