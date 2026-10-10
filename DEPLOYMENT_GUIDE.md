@@ -23,12 +23,13 @@ Render hosts the FastAPI backend with ASGI (`uvicorn`) and automated health chec
    - **Name**: `wecare-ai-backend`
    - **Root Directory**: `backend`
    - **Environment**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt`
+   - **Build Command**: `pip install --upgrade pip setuptools wheel && pip install -r requirements.txt`
    - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
    - **Health Check Path**: `/api/health`
 4. Under **Environment Variables**, add:
    | Variable | Value | Notes |
    |---|---|---|
+   | `PYTHON_VERSION` | `3.11.9` | **Critical**: locks stable Python version for pre-built wheels |
    | `ENVIRONMENT` | `production` | Production mode |
    | `CORS_ORIGINS` | `*` | Or specify your Vercel URL once deployed |
    | `CORS_ORIGIN_REGEX` | `^https?://.*` | Allows any Vercel domain / preview deployments |
