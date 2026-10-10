@@ -7,31 +7,6 @@ import type { QueueFilter } from '../../services/queueService';
 import { ConfirmDialog } from '../common/ConfirmDialog';
 import { animate, stagger } from 'animejs';
 
-// ── Live waiting time (updates every 30s) ──────────────────────────────────
-function useLiveTime() {
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setTick(t => t + 1), 10_000);
-    return () => clearInterval(id);
-  }, []);
-  return tick;
-}
-
-function formatWait(createdAt: string): string {
-  const diff = Math.floor((Date.now() - new Date(createdAt).getTime()) / 1000);
-  if (diff < 60) return `${diff}s`;
-  if (diff < 3600) return `${Math.floor(diff / 60)}m`;
-  const h = Math.floor(diff / 3600);
-  const m = Math.floor((diff % 3600) / 60);
-  return m > 0 ? `${h}h ${m}m` : `${h}h`;
-}
-
-function getWaitColor(createdAt: string): string {
-  const mins = Math.floor((Date.now() - new Date(createdAt).getTime()) / 60000);
-  if (mins >= 60) return '#D64545';   // > 1 hour → urgent red
-  if (mins >= 20) return '#D97706';   // 20-60 min → amber warning
-  return '#059669';                   // < 20 min → green
-}
 
 // ── Stat card ──────────────────────────────────────────────────────────────
 function StatCard({
@@ -60,7 +35,6 @@ export function DashboardPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const services = getServices();
-  const tick = useLiveTime();
 
   const [queue, setQueue] = useState<QueueItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -319,7 +293,6 @@ export function DashboardPage() {
               <div className="db-col-name">Patient</div>
               <div className="db-col-acuity">Acuity</div>
               <div className="db-col-assessment">Assessment</div>
-              <div className="db-col-wait">Waiting</div>
               <div className="db-col-review">Review</div>
               <div className="db-col-action"></div>
             </div>
@@ -333,11 +306,8 @@ export function DashboardPage() {
                     item={item}
                     index={index}
                     onClick={() => navigate(`/patients/${item.patient_id}`)}
-                    formatWait={formatWait}
-                    getWaitColor={getWaitColor}
                     highlighted={isHighlighted}
                     rowRef={isHighlighted ? highlightRef : null}
-                    tick={tick}
                     onDelete={() => setPatientPendingDelete(item)}
                     t={t}
                   />
@@ -363,24 +333,17 @@ export function DashboardPage() {
 }
 
 function QueueRow({
-  item, index, onClick, onDelete, formatWait, getWaitColor, highlighted, rowRef, tick, t,
+  item, index, onClick, onDelete, highlighted, rowRef, t,
 }: {
   item: QueueItem;
   index: number;
   onClick: () => void;
   onDelete: () => void;
-  formatWait: (ts: string) => string;
-  getWaitColor: (ts: string) => string;
   highlighted: boolean;
   rowRef: React.RefObject<HTMLDivElement | null> | null;
-  tick: number;
   t: (key: string) => string;
 }) {
   const isRed = item.acuity === 'red';
-  void tick; // used to force re-render for live time
-
-  const waitText = formatWait(item.created_at);
-  const waitColor = getWaitColor(item.created_at);
 
   // Acuity display values (no rounded pill box)
   const acuityMeta: Record<string, { dot: string; label: string }> = {
@@ -449,17 +412,7 @@ function QueueRow({
         <span className="db-assessment-text">{item.assessment_summary || '—'}</span>
       </div>
 
-      {/* Waiting — live, color coded */}
-      <div className="db-col-wait">
-        <span className="db-wait-text" style={{ color: waitColor }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ width: 13, height: 13, display: 'inline', marginRight: 4, verticalAlign: 'middle' }}>
-            <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-          </svg>
-          {waitText}
-        </span>
-      </div>
-
-      {/* Review — plain text, no pill */}
+      {/* Review — moved to where Waiting was */}
       <div className="db-col-review">
         <span className="db-review-inline" style={{ color: review.color }}>
           {review.icon && <span style={{ marginRight: 3 }}>{review.icon}</span>}
