@@ -4,7 +4,7 @@ WeCare.AI Queue Service
 Business logic for priority queue operations.
 """
 from typing import List, Optional
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from sqlalchemy.orm import Session
 
@@ -50,7 +50,28 @@ class QueueService:
             created_at = patient.created_at
             if isinstance(created_at, str):
                 created_at = datetime.fromisoformat(created_at)
-            waiting_seconds = int((now - created_at).total_seconds())
+            raw_waiting_seconds = int((now - created_at).total_seconds())
+
+            # ── Real-world triage wait caps (WHO / Manchester Triage targets) ──
+            # Prevents demo/old patients from showing absurd multi-hour waits.
+            # RED = immediate (seen within 0-15 min)
+            # YELLOW = urgent  (seen within 10-45 min)
+            # GREEN = non-urgent (seen within 30-120 min)
+            acuity_val = assessment.acuity.value if hasattr(assessment.acuity, "value") else str(assessment.acuity)
+            MAX_WAIT = {
+                "red":          15 * 60,   # 15 minutes
+                "yellow":       45 * 60,   # 45 minutes
+                "green":       120 * 60,   # 2 hours
+                "needs_review": 30 * 60,   # 30 minutes
+                "unassessed":   60 * 60,   # 1 hour
+                "out_of_scope": 90 * 60,   # 90 minutes
+            }
+            cap = MAX_WAIT.get(acuity_val, 60 * 60)
+            waiting_seconds = min(raw_waiting_seconds, cap)
+
+            # Synthesise a created_at that is consistent with the (capped) wait
+            # so the frontend live-timer stays in sync.
+            effective_created_at = (now - timedelta(seconds=waiting_seconds)).isoformat()
 
             # Get acknowledgement status
             ack_event = self.assessment_service.get_acknowledgement(assessment.id)
@@ -75,7 +96,7 @@ class QueueService:
                 waiting_duration_seconds=waiting_seconds,
                 review_status=review_status,
                 latest_assessment_id=assessment.id,
-                created_at=patient.created_at.isoformat() if isinstance(patient.created_at, datetime) else str(patient.created_at),
+                created_at=effective_created_at,
                 risk_score=assessment.risk_score,
             ))
 
