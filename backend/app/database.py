@@ -64,6 +64,21 @@ def init_db() -> None:
                 connection.execute(text("ALTER TABLE patients ADD COLUMN name VARCHAR(200)"))
             if "gender" not in existing_columns:
                 connection.execute(text("ALTER TABLE patients ADD COLUMN gender VARCHAR(50)"))
+        # Migrate assessments table — add AI/risk columns if missing
+        assessment_columns = {column["name"] for column in inspect(engine).get_columns("assessments")}
+        with engine.begin() as connection:
+            if "risk_score" not in assessment_columns:
+                connection.execute(text("ALTER TABLE assessments ADD COLUMN risk_score INTEGER"))
+            if "risk_level" not in assessment_columns:
+                connection.execute(text("ALTER TABLE assessments ADD COLUMN risk_level VARCHAR(20)"))
+            if "confidence" not in assessment_columns:
+                connection.execute(text("ALTER TABLE assessments ADD COLUMN confidence REAL"))
+            if "recommended_department" not in assessment_columns:
+                connection.execute(text("ALTER TABLE assessments ADD COLUMN recommended_department VARCHAR(100)"))
+            if "clinical_summary" not in assessment_columns:
+                connection.execute(text("ALTER TABLE assessments ADD COLUMN clinical_summary TEXT"))
+            if "ai_source" not in assessment_columns:
+                connection.execute(text("ALTER TABLE assessments ADD COLUMN ai_source VARCHAR(20)"))
 
 
 def get_db() -> Session:

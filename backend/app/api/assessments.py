@@ -111,6 +111,19 @@ async def create_assessment(
             ai_source = "rules"
             logger.info(f"Assessment {result.assessment_id}: deterministic fallback used (score={risk_score})")
 
+        # 5. Persist risk fields back to the DB row
+        from app.repositories.assessment_repository import AssessmentRepository
+        assessment_repo = AssessmentRepository(service.db)
+        db_assessment = assessment_repo.get_by_id(result.assessment_id)
+        if db_assessment:
+            db_assessment.risk_score = risk_score
+            db_assessment.risk_level = risk_level
+            db_assessment.confidence = confidence
+            db_assessment.recommended_department = recommended_department
+            db_assessment.clinical_summary = clinical_summary
+            db_assessment.ai_source = ai_source
+            service.db.commit()
+
         return AssessmentResponse(
             assessment_id=result.assessment_id,
             patient_id=result.patient_id,

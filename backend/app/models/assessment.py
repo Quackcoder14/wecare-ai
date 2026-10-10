@@ -8,7 +8,7 @@ import enum
 from datetime import datetime
 from typing import Optional
 
-from sqlalchemy import Column, String, Integer, DateTime, Text, JSON, ForeignKey, Enum as SQLEnum, Index
+from sqlalchemy import Column, String, Integer, Float, DateTime, Text, JSON, ForeignKey, Enum as SQLEnum, Index
 from sqlalchemy.dialects.sqlite import JSON as SQLiteJSON
 from sqlalchemy.orm import relationship
 
@@ -66,6 +66,14 @@ class Assessment(Base):
 
     # Versioning
     rules_version = Column(String(50), nullable=False)
+
+    # AI / risk scoring output
+    risk_score = Column(Integer, nullable=True)           # 0-100
+    risk_level = Column(String(20), nullable=True)        # LOW | MEDIUM | HIGH
+    confidence = Column(Float, nullable=True)             # 0.0-1.0
+    recommended_department = Column(String(100), nullable=True)
+    clinical_summary = Column(Text, nullable=True)
+    ai_source = Column(String(20), nullable=True)         # "groq" | "rules"
 
     # Timestamps
     assessed_at = Column(DateTime, nullable=False, default=datetime.utcnow)
